@@ -60,10 +60,6 @@ module.exports = {
             fixWith: 'ReadonlyMap'
           },
 
-          'Record': {
-            message: 'Use Readonly<Record<K, T>> instead'
-          },
-
           'Set': {
             message: 'Use ReadonlySet instead',
             fixWith: 'ReadonlySet'
