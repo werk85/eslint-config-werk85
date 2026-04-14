@@ -1,6 +1,6 @@
-import { TSESLint } from '@typescript-eslint/utils'
+import { defineConfig } from 'eslint/config'
 
-export const recommended: TSESLint.FlatConfig.Config = {
+export const recommended = defineConfig({
   rules: {
     'no-restricted-imports': [
       'error',
@@ -10,31 +10,30 @@ export const recommended: TSESLint.FlatConfig.Config = {
     ],
     '@typescript-eslint/no-useless-empty-export': 'error'
   }
-}
+})
 
-export const stylistic: TSESLint.FlatConfig.Config = {
+export const stylistic = defineConfig({
   rules: {
     'perfectionist/sort-imports': [
       'error',
       {
         type: 'natural',
         order: 'asc',
+        partitionByComment: true,
+        newlinesBetween: 0,
         groups: [
-          'side-effect',
-          'type',
-          ['builtin', 'external'],
-          'internal-type',
-          'internal',
-          ['parent-type', 'sibling-type', 'index-type'],
-          ['parent', 'sibling', 'index'],
-          'style',
-          'object',
+          'type-import',
+          ['value-builtin', 'value-external'],
+          'type-internal',
+          'value-internal',
+          ['type-parent', 'type-sibling', 'type-index'],
+          ['value-parent', 'value-sibling', 'value-index'],
+          'ts-equals-import',
           'unknown'
-        ],
-        newlinesBetween: 'never'
+        ]
       }
     ],
     'perfectionist/sort-named-imports': ['error', { type: 'natural', order: 'asc' }],
     'perfectionist/sort-named-exports': ['error', { type: 'natural', order: 'asc' }]
   }
-}
+})

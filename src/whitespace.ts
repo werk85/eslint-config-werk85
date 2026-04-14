@@ -1,4 +1,4 @@
-import { TSESLint } from '@typescript-eslint/utils'
+import { defineConfig } from 'eslint/config'
 
 const difference =
   <A>(a: ReadonlyArray<A>) =>
@@ -46,7 +46,7 @@ const statements = [
   'with'
 ]
 
-export const stylistic: TSESLint.FlatConfig.Config = {
+export const stylistic = defineConfig({
   rules: {
     // whitespace (spaces)
     // note: this rule has many issues but seems to be good enough
@@ -77,4 +77,4 @@ export const stylistic: TSESLint.FlatConfig.Config = {
       }
     ]
   }
-}
+})

@@ -1,12 +1,12 @@
-import { TSESLint } from '@typescript-eslint/utils'
+import { defineConfig } from 'eslint/config'
 
-export const recommended: TSESLint.FlatConfig.Config = {
+export const recommended = defineConfig({
   rules: {
     '@typescript-eslint/no-unused-vars': 'warn'
   }
-}
+})
 
-export const stylistic: TSESLint.FlatConfig.Config = {
+export const stylistic = defineConfig({
   rules: {
     '@typescript-eslint/prefer-destructuring': [
       'error',
@@ -24,4 +24,4 @@ export const stylistic: TSESLint.FlatConfig.Config = {
     '@stylistic/one-var-declaration-per-line': ['off'],
     '@stylistic/rest-spread-spacing': ['error', 'never']
   }
-}
+})

@@ -1,15 +1,15 @@
-import { TSESLint } from '@typescript-eslint/utils'
+import { defineConfig } from 'eslint/config'
 
-export const recommended: TSESLint.FlatConfig.Config = {
+export const recommended = defineConfig({
   rules: {
     '@typescript-eslint/no-empty-function': 'error',
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/method-signature-style': ['error', 'property']
   }
-}
+})
 
-export const stylistic: TSESLint.FlatConfig.Config = {
+export const stylistic = defineConfig({
   rules: {
     'arrow-body-style': ['error', 'as-needed'],
     '@stylistic/arrow-parens': ['error', 'as-needed'],
@@ -30,4 +30,4 @@ export const stylistic: TSESLint.FlatConfig.Config = {
       }
     ]
   }
-}
+})

@@ -1,7 +1,7 @@
-import { TSESLint } from '@typescript-eslint/utils'
+import { defineConfig } from 'eslint/config'
 
-export const recommended: TSESLint.FlatConfig.Config = {
+export const recommended = defineConfig({
   rules: {
     '@typescript-eslint/no-implied-eval': 'error'
   }
-}
+})

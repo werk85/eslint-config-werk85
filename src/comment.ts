@@ -1,6 +1,6 @@
-import { TSESLint } from '@typescript-eslint/utils'
+import { defineConfig } from 'eslint/config'
 
-export const stylistic: TSESLint.FlatConfig.Config = {
+export const stylistic = defineConfig({
   rules: {
     '@stylistic/spaced-comment': ['error', 'always'],
     '@stylistic/line-comment-position': ['error', 'above'],
@@ -18,4 +18,4 @@ export const stylistic: TSESLint.FlatConfig.Config = {
     ],
     '@stylistic/multiline-comment-style': ['off']
   }
-}
+})

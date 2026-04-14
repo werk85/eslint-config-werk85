@@ -8,15 +8,15 @@ yarn add -D eslint eslint-config-werk85
 
 We offer different eslint configs which can be combined on demand. Similar to eslint and other eslint configs we provide `recommended` and `stylistic` configs. The `recommended` configs contain rules which help to improve the code to be more robust and secure. The `stylistic` configs contain only formatting rules with the main purpose to enforce a consistent code style.
 
-| `exports`  | recommended | stylistic | |
-|------------|-------------|-----------|-|
+| `exports`   | recommended | stylistic | |
+|-------------|-------------|-----------|-|
 | `.`         | ✅ | ✅ | Common rules appropriate in general for all files. |
 | `/react`    | ✅ | ✅ | Mainly when working with react, i.e. for `.tsx` files. |
 | `/jest`     | ✅ | ✅ | For test files `*.test.*` in combination with `jest`. |
 | `/fp-ts`    | ✅ | ➖ | For functional programming with the `fp-ts` ecosystem. |
 | `/prettier` | ➖ | ✅ | `prettier` rules must be added last to the config because it disables conflicting rules. |
 
-We include the following plugins.
+We include the following plugins:
 
 * [eslint](https://eslint.org/docs/latest/rules/)
 * [typescript-eslint](https://typescript-eslint.io/rules/)
@@ -26,6 +26,9 @@ We include the following plugins.
 * [react](https://github.com/jsx-eslint/eslint-plugin-react)
 * [react-hooks](https://github.com/facebook/react/tree/main/packages/eslint-plugin-react-hooks)
 * [jest](https://github.com/jest-community/eslint-plugin-jest)
+
+Additional plugins of interest might be:
+
 * [deprecation](https://github.com/gund/eslint-plugin-deprecation)
 
 Please consult the documentation of each plugin for further rule explanation.
@@ -37,19 +40,18 @@ Create a `eslint.config.mjs` config file in the root of your project with the fo
 ``` js
 import werk85 from 'eslint-config-werk85'
 import prettier from 'eslint-config-werk85/prettier'
+import { defineConfig } from 'eslint/config'
 
-/**
- * @type { import('@typescript-eslint/utils').TSESLint.FlatConfig.ConfigArray }
- */
-const config = [
+
+const config = defineConfig(
   {
     ignores: [/* array of paths to be ignored */]
   }
-  ...werk85.recommended,
-  ...werk85.stylistic,
-  ...prettier.stylistic,
+  werk85.recommended,
+  werk85.stylistic,
+  prettier.stylistic,
   // add additional configs if necessary
-]
+)
 
 export default config
 ```
@@ -76,9 +78,7 @@ const __dirname = path.relative(findWorkspaceRoot(), import.meta.dirname)
 // Restrict rules only to files in the package folder and its subfolders.
 const files = [path.join(__dirname, '**/*.{mjs,ts,tsx}')]
 
-/**
- * @type { import('@typescript-eslint/utils').TSESLint.FlatConfig.ConfigArray }
- */
+
 const config = [
   // Every config must be restricted to the package folder.
   // Otherwise those rules would leak into other packages.

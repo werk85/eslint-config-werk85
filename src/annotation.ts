@@ -1,13 +1,13 @@
-import { TSESLint } from '@typescript-eslint/utils'
+import { defineConfig } from 'eslint/config'
 
-export const recommended: TSESLint.FlatConfig.Config = {
+export const recommended = defineConfig({
   rules: {
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/no-inferrable-types': 'error',
     '@typescript-eslint/no-invalid-void-type': 'error',
     '@typescript-eslint/prefer-function-type': 'off',
     '@typescript-eslint/unified-signatures': 'error',
-    '@typescript-eslint/no-empty-object-type': ['error', { allowInterfaces: 'with-single-extends' }],
+    '@typescript-eslint/no-empty-object-type': ['error', { allowInterfaces: 'always' }],
     '@typescript-eslint/no-restricted-types': [
       'error',
       {
@@ -28,9 +28,9 @@ export const recommended: TSESLint.FlatConfig.Config = {
       }
     ]
   }
-}
+})
 
-export const stylistic: TSESLint.FlatConfig.Config = {
+export const stylistic = defineConfig({
   rules: {
     '@typescript-eslint/consistent-type-assertions': [
       'error',
@@ -41,4 +41,4 @@ export const stylistic: TSESLint.FlatConfig.Config = {
     ],
     '@typescript-eslint/no-unnecessary-type-assertion': 'error'
   }
-}
+})

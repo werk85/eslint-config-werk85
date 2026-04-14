@@ -1,6 +1,6 @@
-import { TSESLint } from '@typescript-eslint/utils'
+import { defineConfig } from 'eslint/config'
 
-export const recommended: TSESLint.FlatConfig.Config = {
+export const recommended = defineConfig({
   rules: {
     '@typescript-eslint/no-unused-expressions': [
       'error',
@@ -10,11 +10,11 @@ export const recommended: TSESLint.FlatConfig.Config = {
       }
     ],
     '@typescript-eslint/strict-boolean-expressions': 'error',
-    '@typescript-eslint/switch-exhaustiveness-check': 'error'
+    '@typescript-eslint/switch-exhaustiveness-check': ['error', { considerDefaultExhaustiveForUnions: true }]
   }
-}
+})
 
-export const stylistic: TSESLint.FlatConfig.Config = {
+export const stylistic = defineConfig({
   rules: {
     '@typescript-eslint/no-unnecessary-condition': 'error',
     '@stylistic/max-statements-per-line': ['error', { max: 1 }],
@@ -31,4 +31,4 @@ export const stylistic: TSESLint.FlatConfig.Config = {
     '@stylistic/padded-blocks': ['error', 'never'],
     '@stylistic/space-before-blocks': ['error', 'always']
   }
-}
+})

@@ -1,6 +1,6 @@
-import { TSESLint } from '@typescript-eslint/utils'
+import { defineConfig } from 'eslint/config'
 
-export const stylistic: TSESLint.FlatConfig.Config = {
+export const stylistic = defineConfig({
   rules: {
     // quotes
     '@stylistic/quotes': [
@@ -29,4 +29,4 @@ export const stylistic: TSESLint.FlatConfig.Config = {
     '@typescript-eslint/no-base-to-string': 'error',
     '@typescript-eslint/restrict-template-expressions': 'error'
   }
-}
+})
