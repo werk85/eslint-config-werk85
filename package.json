@@ -68,7 +68,8 @@
     "typescript-eslint": "^8.59.3"
   },
   "peerDependencies": {
-    "eslint": "^10.2.0"
+    "eslint": "^10.0.0",
+    "typescript": "^6.0.0"
   },
   "devDependencies": {
     "@local/eslint-config-werk85": "./dist",
@@ -84,7 +85,10 @@
     "npm-check-updates": "^22.2.0",
     "rimraf": "^6.1.3",
     "tsx": "^4.22.0",
-    "typescript": "^6.0.3"
+    "typescript": "6.0.3"
   },
-  "packageManager": "yarn@3.5.0"
+  "resolutions": {
+    "typescript": "6.0.3"
+  },
+  "packageManager": "yarn@4.14.1"
 }
