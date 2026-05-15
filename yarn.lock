@@ -564,8 +564,8 @@ __metadata:
   linkType: hard
 
 "@local/eslint-config-werk85@file:./dist::locator=eslint-config-werk85%40workspace%3A.":
-  version: 10.0.0-beta.1
-  resolution: "@local/eslint-config-werk85@file:./dist#./dist::hash=5d669b&locator=eslint-config-werk85%40workspace%3A."
+  version: 10.0.0
+  resolution: "@local/eslint-config-werk85@file:./dist#./dist::hash=f016aa&locator=eslint-config-werk85%40workspace%3A."
   dependencies:
     "@eslint/compat": "npm:^2.1.0"
     "@eslint/js": "npm:^10.0.1"
@@ -581,8 +581,9 @@ __metadata:
     prettier: "npm:^3.8.3"
     typescript-eslint: "npm:^8.59.3"
   peerDependencies:
-    eslint: ^10.2.0
-  checksum: 10/9ace9d5fac29a22ed797cd71e13a00074fe37c82d8fc8ce7bb376e743fb444abf1947157537f91256cf279e349b1c448e26710274118671a01b4a1057b2249cf
+    eslint: ^10.0.0
+    typescript: ^6.0.0
+  checksum: 10/75274a0e073e8a52a521c9a007df7a4c29624d36c723250c90a13c4c2089d3d1f3e67cf6d746a045386c008396fb3f1e899fd11cd4c2fa7bad56c03843d66e52
   languageName: node
   linkType: hard
 
@@ -697,6 +698,13 @@ __metadata:
   dependencies:
     csstype: "npm:^3.2.2"
   checksum: 10/fbff239089ee64b6bd9b00543594db498278b06de527ef1b0f71bb0eb09cc4445a71b5dd3c0d3d0257255c4eed94406be40a74ad4a987ade8a8d5dd65c82bc5f
+  languageName: node
+  linkType: hard
+
+"@types/semver@npm:^7":
+  version: 7.7.1
+  resolution: "@types/semver@npm:7.7.1"
+  checksum: 10/8f09e7e6ca3ded67d78ba7a8f7535c8d9cf8ced83c52e7f3ac3c281fe8c689c3fe475d199d94390dc04fc681d51f2358b430bb7b2e21c62de24f2bee2c719068
   languageName: node
   linkType: hard
 
@@ -1901,6 +1909,7 @@ __metadata:
     "@types/eslint-config-prettier": "npm:^6.11.3"
     "@types/node": "npm:^25.8.0"
     "@types/react": "npm:^19.2.14"
+    "@types/semver": "npm:^7"
     concurrently: "npm:^9.2.1"
     eslint: "npm:^10.3.0"
     eslint-config-prettier: "npm:^10.1.8"
@@ -1917,6 +1926,7 @@ __metadata:
     npm-check-updates: "npm:^22.2.0"
     prettier: "npm:^3.8.3"
     rimraf: "npm:^6.1.3"
+    semver: "npm:^7.8.0"
     tsx: "npm:^4.22.0"
     typescript: "npm:6.0.3"
     typescript-eslint: "npm:^8.59.3"
@@ -3869,7 +3879,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"semver@npm:^7.3.5, semver@npm:^7.7.3":
+"semver@npm:^7.3.5, semver@npm:^7.7.3, semver@npm:^7.8.0":
   version: 7.8.0
   resolution: "semver@npm:7.8.0"
   bin:
