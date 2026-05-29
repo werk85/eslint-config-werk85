@@ -1,6 +1,6 @@
-import { TSESLint } from '@typescript-eslint/utils'
+import { defineConfig } from 'eslint/config'
 
-export const stylistic: TSESLint.FlatConfig.Config = {
+export const stylistic = defineConfig({
   rules: {
     // parentheses
     '@stylistic/no-extra-parens': [
@@ -29,4 +29,4 @@ export const stylistic: TSESLint.FlatConfig.Config = {
     // regex
     '@stylistic/wrap-regex': ['error']
   }
-}
+})

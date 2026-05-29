@@ -1,6 +1,6 @@
-import { TSESLint } from '@typescript-eslint/utils'
+import { defineConfig } from 'eslint/config'
 
-export const stylistic: TSESLint.FlatConfig.Config = {
+export const stylistic = defineConfig({
   rules: {
     '@typescript-eslint/array-type': [
       'error',
@@ -13,4 +13,4 @@ export const stylistic: TSESLint.FlatConfig.Config = {
     '@stylistic/array-element-newline': ['error', 'consistent'],
     '@stylistic/array-bracket-spacing': ['error', 'never']
   }
-}
+})

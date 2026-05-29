@@ -1,12 +1,11 @@
-import { fixupPluginRules } from '@eslint/compat'
-import { TSESLint } from '@typescript-eslint/utils'
 import eslintPluginReact from 'eslint-plugin-react'
 import eslintPluginReactHooks from 'eslint-plugin-react-hooks'
+import { defineConfig } from 'eslint/config'
 import globals from 'globals'
 
 const files = ['**/*.{jsx,tsx}']
 
-export const recommended: TSESLint.FlatConfig.ConfigArray = [
+export const recommended = defineConfig(
   {
     files,
     ...eslintPluginReact.configs.flat.recommended,
@@ -32,28 +31,24 @@ export const recommended: TSESLint.FlatConfig.ConfigArray = [
   },
   {
     files,
-    plugins: {
-      'react-hooks': fixupPluginRules(eslintPluginReactHooks)
-    },
+    ...eslintPluginReactHooks.configs.flat.recommended,
     rules: {
       'react-hooks/rules-of-hooks': 'error',
       'react-hooks/exhaustive-deps': 'warn'
     }
   }
-]
+)
 
-export const stylistic: TSESLint.FlatConfig.ConfigArray = [
-  {
-    files,
-    rules: {
-      '@stylistic/jsx-quotes': ['error', 'prefer-double'],
-      '@stylistic/jsx-closing-bracket-location': [
-        'error',
-        {
-          nonEmpty: 'after-props',
-          selfClosing: 'tag-aligned'
-        }
-      ]
-    }
+export const stylistic = defineConfig({
+  files,
+  rules: {
+    '@stylistic/jsx-quotes': ['error', 'prefer-double'],
+    '@stylistic/jsx-closing-bracket-location': [
+      'error',
+      {
+        nonEmpty: 'after-props',
+        selfClosing: 'tag-aligned'
+      }
+    ]
   }
-]
+})

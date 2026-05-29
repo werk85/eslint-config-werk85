@@ -1,14 +1,12 @@
 import eslintPluginJavascript from '@eslint/js'
 import eslintPluginStylistic from '@stylistic/eslint-plugin'
-import { TSESLint } from '@typescript-eslint/utils'
-import { Linter } from 'eslint'
 import eslintPluginPerfectionist from 'eslint-plugin-perfectionist'
+import { defineConfig } from 'eslint/config'
 import eslintPluginTypescript from 'typescript-eslint'
 import * as annotation from './annotation'
 import * as array from './array'
 import * as comment from './comment'
 import * as declaration from './declaration'
-import * as deprecation from './deprecation'
 import * as esm from './esm'
 import * as func from './function'
 import * as objects from './objects'
@@ -22,12 +20,11 @@ import * as string from './string'
 import * as variable from './variable'
 import * as whitespace from './whitespace'
 
-export const recommended: TSESLint.FlatConfig.ConfigArray = [
+export const recommended = defineConfig(
   eslintPluginJavascript.configs.recommended,
-  ...eslintPluginTypescript.configs.strict,
+  eslintPluginTypescript.configs.strict,
   annotation.recommended,
   declaration.recommended,
-  deprecation.recommended,
   esm.recommended,
   func.recommended,
   objects.recommended,
@@ -49,22 +46,11 @@ export const recommended: TSESLint.FlatConfig.ConfigArray = [
       '@typescript-eslint/no-invalid-void-type': 'off'
     }
   }
-]
+)
 
-/**
- * Currently it is not clear which config type is the correct. Comparing the
- * actual data then `TSESLint.FlatConfig.Config` seems to be the correct one
- * regarding plugins which is a record instead of a string array as suggested by
- * `Linter.Config`. On the other hand `Linter.Config` is the official type from
- * eslint. 🤷
- *
- * As a workaround we allow both types until the correct type is clarified.
- */
-type Config = Linter.Config | TSESLint.FlatConfig.Config
-
-export const stylistic: ReadonlyArray<Config> = [
-  ...eslintPluginTypescript.configs.stylistic,
-  eslintPluginStylistic.configs['recommended-flat'],
+export const stylistic = defineConfig(
+  eslintPluginTypescript.configs.stylistic,
+  eslintPluginStylistic.configs.recommended,
   {
     plugins: {
       perfectionist: eslintPluginPerfectionist
@@ -84,4 +70,4 @@ export const stylistic: ReadonlyArray<Config> = [
   string.stylistic,
   variable.stylistic,
   whitespace.stylistic
-]
+)

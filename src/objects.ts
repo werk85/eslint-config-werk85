@@ -1,12 +1,12 @@
-import { TSESLint } from '@typescript-eslint/utils'
+import { defineConfig } from 'eslint/config'
 
-export const recommended: TSESLint.FlatConfig.Config = {
+export const recommended = defineConfig({
   rules: {
     '@typescript-eslint/consistent-type-definitions': ['error', 'interface']
   }
-}
+})
 
-export const stylistic: TSESLint.FlatConfig.Config = {
+export const stylistic = defineConfig({
   rules: {
     'object-shorthand': ['error', 'always'],
     '@typescript-eslint/consistent-indexed-object-style': ['error', 'record'],
@@ -16,4 +16,4 @@ export const stylistic: TSESLint.FlatConfig.Config = {
     // this seems not to work properly for destructuring
     '@stylistic/object-property-newline': ['error', { allowAllPropertiesOnSameLine: true }]
   }
-}
+})

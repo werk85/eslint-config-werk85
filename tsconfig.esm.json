@@ -1,11 +1,10 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "moduleResolution": "Bundler",
-    "module": "ESNext",
     "declaration": true,
-    "declarationMap": true,
+    "declarationMap": false,
     "noEmit": false,
+    "rootDir": "./src",
     "outDir": "dist/esm"
   },
   "include": [

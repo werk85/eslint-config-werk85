@@ -1,6 +1,6 @@
-import { TSESLint } from '@typescript-eslint/utils'
+import { defineConfig } from 'eslint/config'
 
-export const recommended: TSESLint.FlatConfig.Config = {
+export const recommended = defineConfig({
   rules: {
     eqeqeq: [
       'error',
@@ -10,9 +10,9 @@ export const recommended: TSESLint.FlatConfig.Config = {
       }
     ]
   }
-}
+})
 
-export const stylistic: TSESLint.FlatConfig.Config = {
+export const stylistic = defineConfig({
   rules: {
     '@typescript-eslint/no-unnecessary-boolean-literal-compare': [
       'error',
@@ -35,4 +35,4 @@ export const stylistic: TSESLint.FlatConfig.Config = {
     '@stylistic/space-unary-ops': ['error', { words: true, nonwords: false }],
     '@stylistic/no-mixed-operators': ['error']
   }
-}
+})

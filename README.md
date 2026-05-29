@@ -3,99 +3,90 @@
 ## Install
 
 ```sh
-yarn add -D eslint eslint-config-werk85 
+yarn add -D eslint eslint-config-werk85 jiti
 ```
+
+`jiti` is required to write TypeScript configuration files (`*.ts`). See also [official documentation](https://eslint.org/docs/latest/use/configure/configuration-files#typescript-configuration-files).
+
+## Imports
 
 We offer different eslint configs which can be combined on demand. Similar to eslint and other eslint configs we provide `recommended` and `stylistic` configs. The `recommended` configs contain rules which help to improve the code to be more robust and secure. The `stylistic` configs contain only formatting rules with the main purpose to enforce a consistent code style.
 
-| `exports`  | recommended | stylistic | |
-|------------|-------------|-----------|-|
+| `exports`   | recommended | stylistic | |
+|-------------|-------------|-----------|-|
 | `.`         | ✅ | ✅ | Common rules appropriate in general for all files. |
 | `/react`    | ✅ | ✅ | Mainly when working with react, i.e. for `.tsx` files. |
 | `/jest`     | ✅ | ✅ | For test files `*.test.*` in combination with `jest`. |
 | `/fp-ts`    | ✅ | ➖ | For functional programming with the `fp-ts` ecosystem. |
 | `/prettier` | ➖ | ✅ | `prettier` rules must be added last to the config because it disables conflicting rules. |
+| `/restricted-imports` | ➖ | ➖ | contains predefined configs for the rule [`no-restricted-imports`](https://typescript-eslint.io/rules/no-restricted-imports/) |
 
-We include the following plugins.
+We include the following plugins:
 
 * [eslint](https://eslint.org/docs/latest/rules/)
 * [typescript-eslint](https://typescript-eslint.io/rules/)
-* [eslint Stylistic](https://eslint.style/packages/default)
-* [Perfectionist](https://perfectionist.dev/)
+* [eslint stylistic](https://eslint.style/packages/default)
+* [perfectionist](https://perfectionist.dev/)
 * [prettier](https://github.com/prettier/eslint-plugin-prettier)
 * [react](https://github.com/jsx-eslint/eslint-plugin-react)
 * [react-hooks](https://github.com/facebook/react/tree/main/packages/eslint-plugin-react-hooks)
 * [jest](https://github.com/jest-community/eslint-plugin-jest)
+
+Additional plugins of interest might be:
+
 * [deprecation](https://github.com/gund/eslint-plugin-deprecation)
 
 Please consult the documentation of each plugin for further rule explanation.
 
 ## Usage
 
-Create a `eslint.config.mjs` config file in the root of your project with the following content.
+Create a `eslint.config.ts` config file in the root of your project for common rules with the following content.
 
 ``` js
 import werk85 from 'eslint-config-werk85'
 import prettier from 'eslint-config-werk85/prettier'
+import { defineConfig } from 'eslint/config'
 
-/**
- * @type { import('@typescript-eslint/utils').TSESLint.FlatConfig.ConfigArray }
- */
-const config = [
+
+const config = defineConfig(
   {
     ignores: [/* array of paths to be ignored */]
   }
-  ...werk85.recommended,
-  ...werk85.stylistic,
-  ...prettier.stylistic,
+  werk85.recommended,
+  werk85.stylistic,
+  prettier.stylistic,
   // add additional configs if necessary
-]
+)
 
 export default config
 ```
 
 ### Extending Specific Rules
 
-Eslint looks for a `eslint.config.mjs` config file (`.js` and `cjs` extensions are fine as well). Note that only a single `eslint.config.mjs` must be present in your project and that must be located in the project root. Hence, specific rules must be added there.
+ESLint looks for a `eslint.config.ts` config file (`.js` and `cjs` extensions are fine as well) starting from the the directory of the file to be linted. If no config is found ESLint propagates upwards the path tree until a config is found.
 
-When, for instance, a test folder or a package folder of a monorepo needs additional rules and those rules should be applied only there then `eslint.config.mjs` must be extended with additional configs containing the `files` property which restricts the configuration only to files as specified in `files`.
-
-For better convenience we suggest to save the specific rules in the folder where required, mimicking the legacy behavior before switching to Flat Config. Such a config file has the same structure as the root config but restricted to the folder by specifying the `files` field.
+We suggest to configure specific rules in the folder where required. Such a config must import the root config and may extends specific rules.
 
 In the following we assume a monorepo with a package `app` containing react components. Therefore, we want to add rules for react and those rules should be applied only to files in the `app` package. It is sufficient to specify only react rules knowing that the root config contains already common rules.
 
 ``` js
-// packages/app/eslint.config.package.mjs
+// packages/app/eslint.config.package.ts
 import react from 'eslint-config-werk85/react'
-import findWorkspaceRoot from 'find-yarn-workspace-root'
-import path from 'node:path'
+import { defineConfig } from 'eslint/config'
+import configRoot from '../../eslint.config'
 
-// Determine relative path of package.
-const __dirname = path.relative(findWorkspaceRoot(), import.meta.dirname)
+const config = defineConfig(
+  configRoot,
+  react.recommended,
+  react.stylistic,
+  {
+    ignores: [
+      /* array of paths to be ignored relative to the app package */
+    ]
+  }
+)
 
-// Restrict rules only to files in the package folder and its subfolders.
-const files = [path.join(__dirname, '**/*.{mjs,ts,tsx}')]
-
-/**
- * @type { import('@typescript-eslint/utils').TSESLint.FlatConfig.ConfigArray }
- */
-const config = [
-  // Every config must be restricted to the package folder.
-  // Otherwise those rules would leak into other packages.
-  ...react.recommended.map(config => ({ ...config, files })),
-  ...react.stylistic.map(config => ({ ...config, files })),
-]
-```
-
-At this moment the additional config is not loaded. We need to extend the project config `eslint.config.mjs`. Add the following lines to take effect.
-
-```js
-import configPackageApp from 'packages/app/eslint.config.package.mjs'
-
-const config = [
-  // ... common configs, see above
-  configPackageApp
-]
+export default config
 ```
 
 ## Linting Scripts
@@ -113,7 +104,7 @@ When multiple linters are used (e.g. `eslint` and `tsc`) then we recommend to us
 
 ## VSCode Integration
 
-If you use VSCode install the [ESLint Plugin](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) and make sure you add the following configurations to your `settings.json`. You can access the settings by pressing `CMD + ,` on your keyboard and click on the `Open Settings (JSON)` icon in the upper right corner.
+If you use VSCode install the [ESLint Plugin](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) and make sure the following configurations is added to your `settings.json`. You can access the settings by pressing `CMD + ,` on your keyboard or by clicking on the `Open Settings (JSON)` icon in the upper right corner.
 
 ```json
 {
