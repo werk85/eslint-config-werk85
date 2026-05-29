@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-werk85",
-  "version": "10.0.0-beta.1",
+  "version": "10.0.0",
   "repository": "git@github.com:werk85/eslint-config-werk85.git",
   "author": "werk85 <moin@werk85.de>",
   "license": "MIT",

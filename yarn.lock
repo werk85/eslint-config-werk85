@@ -564,8 +564,8 @@ __metadata:
   linkType: hard
 
 "@local/eslint-config-werk85@file:./dist::locator=eslint-config-werk85%40workspace%3A.":
-  version: 10.0.0
-  resolution: "@local/eslint-config-werk85@file:./dist#./dist::hash=f016aa&locator=eslint-config-werk85%40workspace%3A."
+  version: 10.0.0-beta.1
+  resolution: "@local/eslint-config-werk85@file:./dist#./dist::hash=46ef12&locator=eslint-config-werk85%40workspace%3A."
   dependencies:
     "@eslint/compat": "npm:^2.1.0"
     "@eslint/js": "npm:^10.0.1"
@@ -583,7 +583,7 @@ __metadata:
   peerDependencies:
     eslint: ^10.0.0
     typescript: ^6.0.0
-  checksum: 10/75274a0e073e8a52a521c9a007df7a4c29624d36c723250c90a13c4c2089d3d1f3e67cf6d746a045386c008396fb3f1e899fd11cd4c2fa7bad56c03843d66e52
+  checksum: 10/e028785d747c0e4e1490bb1414c86783873b02a4a6754a639caa4b4902abeb95a223c0efac2470ba09408f1e4cdfd82e7b18cf6e94c35badad07bde8a997d93f
   languageName: node
   linkType: hard
 
