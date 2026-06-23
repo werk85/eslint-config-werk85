@@ -565,7 +565,7 @@ __metadata:
 
 "@local/eslint-config-werk85@file:./dist::locator=eslint-config-werk85%40workspace%3A.":
   version: 10.0.0-beta.1
-  resolution: "@local/eslint-config-werk85@file:./dist#./dist::hash=46ef12&locator=eslint-config-werk85%40workspace%3A."
+  resolution: "@local/eslint-config-werk85@file:./dist#./dist::hash=f833a4&locator=eslint-config-werk85%40workspace%3A."
   dependencies:
     "@eslint/compat": "npm:^2.1.0"
     "@eslint/js": "npm:^10.0.1"
@@ -580,10 +580,7 @@ __metadata:
     globals: "npm:^17.6.0"
     prettier: "npm:^3.8.3"
     typescript-eslint: "npm:^8.59.3"
-  peerDependencies:
-    eslint: ^10.0.0
-    typescript: ^6.0.0
-  checksum: 10/e028785d747c0e4e1490bb1414c86783873b02a4a6754a639caa4b4902abeb95a223c0efac2470ba09408f1e4cdfd82e7b18cf6e94c35badad07bde8a997d93f
+  checksum: 10/18d2cc933137f4eb5cca087bf2350afba4034560c48d0bd57accb466164903943dd454b729228e800d5c631180ea99be50b2c0a2a77c129f8579ad71284d20e1
   languageName: node
   linkType: hard
 
@@ -4421,9 +4418,9 @@ __metadata:
   linkType: hard
 
 "undici@npm:^6.25.0":
-  version: 6.25.0
-  resolution: "undici@npm:6.25.0"
-  checksum: 10/a475e45da3e1d1073283bb70531666f09a432eabff2b857bd7063d469a1ee1486192ff61dc0dadbb526673ce1120fee14d66a59b6b17d1e0bd3a4d5f0a52d0a6
+  version: 6.27.0
+  resolution: "undici@npm:6.27.0"
+  checksum: 10/30c18cdb235edf4dd36f8aa3ace1ffaf44060289a7d62ad44c33180d2d74a224015d25574812f62ce9c625b5beb1b0b766495b650fedf356aca11eed7ce2c816
   languageName: node
   linkType: hard
 
