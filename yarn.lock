@@ -565,7 +565,7 @@ __metadata:
 
 "@local/eslint-config-werk85@file:./dist::locator=eslint-config-werk85%40workspace%3A.":
   version: 10.0.0-beta.1
-  resolution: "@local/eslint-config-werk85@file:./dist#./dist::hash=46ef12&locator=eslint-config-werk85%40workspace%3A."
+  resolution: "@local/eslint-config-werk85@file:./dist#./dist::hash=f833a4&locator=eslint-config-werk85%40workspace%3A."
   dependencies:
     "@eslint/compat": "npm:^2.1.0"
     "@eslint/js": "npm:^10.0.1"
@@ -580,10 +580,7 @@ __metadata:
     globals: "npm:^17.6.0"
     prettier: "npm:^3.8.3"
     typescript-eslint: "npm:^8.59.3"
-  peerDependencies:
-    eslint: ^10.0.0
-    typescript: ^6.0.0
-  checksum: 10/e028785d747c0e4e1490bb1414c86783873b02a4a6754a639caa4b4902abeb95a223c0efac2470ba09408f1e4cdfd82e7b18cf6e94c35badad07bde8a997d93f
+  checksum: 10/18d2cc933137f4eb5cca087bf2350afba4034560c48d0bd57accb466164903943dd454b729228e800d5c631180ea99be50b2c0a2a77c129f8579ad71284d20e1
   languageName: node
   linkType: hard
 
@@ -1140,12 +1137,12 @@ __metadata:
   linkType: hard
 
 "brace-expansion@npm:^1.1.7":
-  version: 1.1.14
-  resolution: "brace-expansion@npm:1.1.14"
+  version: 1.1.16
+  resolution: "brace-expansion@npm:1.1.16"
   dependencies:
     balanced-match: "npm:^1.0.0"
     concat-map: "npm:0.0.1"
-  checksum: 10/2de747a5891ea0d3a1946ea1ae26e056a47f7ea8d42a3009e1736ec3a31a5aa69a3c5da59d998426773553afe4c258e5b12d7953b534fa7f2cf12ce92eed4931
+  checksum: 10/94498bead66c51536df5b7bf1b0a0e581a5b7f86888be10481d06920c4bd9d976e003b13a3d19fddc733f21a09d162ff72f90e18b2c9d062b15121e973d0e13b
   languageName: node
   linkType: hard
 
