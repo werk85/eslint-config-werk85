@@ -565,7 +565,7 @@ __metadata:
 
 "@local/eslint-config-werk85@file:./dist::locator=eslint-config-werk85%40workspace%3A.":
   version: 10.0.0-beta.1
-  resolution: "@local/eslint-config-werk85@file:./dist#./dist::hash=46ef12&locator=eslint-config-werk85%40workspace%3A."
+  resolution: "@local/eslint-config-werk85@file:./dist#./dist::hash=f833a4&locator=eslint-config-werk85%40workspace%3A."
   dependencies:
     "@eslint/compat": "npm:^2.1.0"
     "@eslint/js": "npm:^10.0.1"
@@ -580,10 +580,7 @@ __metadata:
     globals: "npm:^17.6.0"
     prettier: "npm:^3.8.3"
     typescript-eslint: "npm:^8.59.3"
-  peerDependencies:
-    eslint: ^10.0.0
-    typescript: ^6.0.0
-  checksum: 10/e028785d747c0e4e1490bb1414c86783873b02a4a6754a639caa4b4902abeb95a223c0efac2470ba09408f1e4cdfd82e7b18cf6e94c35badad07bde8a997d93f
+  checksum: 10/18d2cc933137f4eb5cca087bf2350afba4034560c48d0bd57accb466164903943dd454b729228e800d5c631180ea99be50b2c0a2a77c129f8579ad71284d20e1
   languageName: node
   linkType: hard
 
@@ -1120,11 +1117,11 @@ __metadata:
   linkType: hard
 
 "baseline-browser-mapping@npm:^2.10.12":
-  version: 2.10.29
-  resolution: "baseline-browser-mapping@npm:2.10.29"
+  version: 2.11.22
+  resolution: "baseline-browser-mapping@npm:2.11.22"
   bin:
     baseline-browser-mapping: dist/cli.cjs
-  checksum: 10/df8fd128168e473abf1ebe3b7d6a9d7fead3a4d76f9f6aa3dce4dd797e5b5a1ecd32b7eb0855c21f6acdb5c48eba9e176a4f93040e47790bb05fe3fccd4ad9d6
+  checksum: 10/edcd3b5a653b3bfb55327e5637420a843d05a3918270d0ce21ba5c80ecfdd74b1bbb929a77f31c488d7145e009a37e8b5870a178813e6610098cfea9dab8a5e4
   languageName: node
   linkType: hard
 
